@@ -1,0 +1,16 @@
+/* src/styles.css */
+
+
+.navBarFont{
+
+  font:  bold, italic, serif;
+  color: white;
+  font-size: 20px;
+}
+
+.navBar{
+
+    width: 100%;
+    padding: 3%;
+    background-color: black;
+}
