@@ -1,3 +1,63 @@
+var _user$project$Players_List$homeBtn = function () {
+	var path = _user$project$Routing$homePath;
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('navBarBtn btn regular'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$href(path),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-home'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Home'),
+				_1: {ctor: '[]'}
+			}
+		});
+}();
+var _user$project$Players_List$editBtn = function (player) {
+	var path = _user$project$Routing$playerPath(player.id);
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('btn editBtn regular'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$href(path),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-pencil mr1'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Edit'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
 var _user$project$Players_List$playerRow = function (player) {
 	return A2(
 		_elm_lang$html$Html$tr,
@@ -38,7 +98,11 @@ var _user$project$Players_List$playerRow = function (player) {
 						_0: A2(
 							_elm_lang$html$Html$td,
 							{ctor: '[]'},
-							{ctor: '[]'}),
+							{
+								ctor: '::',
+								_0: _user$project$Players_List$editBtn(player),
+								_1: {ctor: '[]'}
+							}),
 						_1: {ctor: '[]'}
 					}
 				}
@@ -145,7 +209,7 @@ var _user$project$Players_List$nav = A2(
 			},
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html$text('Players'),
+				_0: _user$project$Players_List$homeBtn,
 				_1: {ctor: '[]'}
 			}),
 		_1: {ctor: '[]'}

@@ -1,3 +1,22 @@
+var _user$project$Msgs$DragEnd = function (a) {
+	return {ctor: 'DragEnd', _0: a};
+};
+var _user$project$Msgs$DragAt = function (a) {
+	return {ctor: 'DragAt', _0: a};
+};
+var _user$project$Msgs$DragStart = function (a) {
+	return {ctor: 'DragStart', _0: a};
+};
+var _user$project$Msgs$OnPlayerSave = function (a) {
+	return {ctor: 'OnPlayerSave', _0: a};
+};
+var _user$project$Msgs$ChangeLevel = F2(
+	function (a, b) {
+		return {ctor: 'ChangeLevel', _0: a, _1: b};
+	});
+var _user$project$Msgs$OnLocationChange = function (a) {
+	return {ctor: 'OnLocationChange', _0: a};
+};
 var _user$project$Msgs$OnFetchPlayers = function (a) {
 	return {ctor: 'OnFetchPlayers', _0: a};
 };

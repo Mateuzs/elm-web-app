@@ -1,11 +1,111 @@
-var _user$project$Update$update = F2(
+var _user$project$Update$positionUpdateHelp = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		return {
-			ctor: '_Tuple2',
-			_0: _elm_lang$core$Native_Utils.update(
-				model,
-				{players: _p0._0}),
-			_1: _elm_lang$core$Platform_Cmd$none
+		switch (_p0.ctor) {
+			case 'DragStart':
+				var _p1 = _p0._0;
+				return A4(
+					_user$project$Models$Model,
+					model.players,
+					model.route,
+					model.position,
+					_elm_lang$core$Maybe$Just(
+						A2(_user$project$Models$Drag, _p1, _p1)));
+			case 'DragAt':
+				return A4(
+					_user$project$Models$Model,
+					model.players,
+					model.route,
+					model.position,
+					A2(
+						_elm_lang$core$Maybe$map,
+						function (_p2) {
+							var _p3 = _p2;
+							return A2(_user$project$Models$Drag, _p3.start, _p0._0);
+						},
+						model.drag));
+			case 'DragEnd':
+				return A4(
+					_user$project$Models$Model,
+					model.players,
+					model.route,
+					_user$project$DragBlock_DragBlock$getPosition(model),
+					_elm_lang$core$Maybe$Nothing);
+			default:
+				return model;
+		}
+	});
+var _user$project$Update$updatePlayer = F2(
+	function (model, updatedPlayer) {
+		var pick = function (currentPlayer) {
+			return _elm_lang$core$Native_Utils.eq(updatedPlayer.id, currentPlayer.id) ? updatedPlayer : currentPlayer;
 		};
+		var updatePlayerList = function (players) {
+			return A2(_elm_lang$core$List$map, pick, players);
+		};
+		var updatedPlayers = A2(_krisajenkins$remotedata$RemoteData$map, updatePlayerList, model.players);
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{players: updatedPlayers});
+	});
+var _user$project$Update$update = F2(
+	function (msg, model) {
+		var _p4 = msg;
+		switch (_p4.ctor) {
+			case 'OnFetchPlayers':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{players: _p4._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'OnLocationChange':
+				var newRoute = _user$project$Routing$parseLocation(_p4._0);
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{route: newRoute}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'ChangeLevel':
+				var _p5 = _p4._0;
+				var updatedPlayer = _elm_lang$core$Native_Utils.update(
+					_p5,
+					{level: _p5.level + _p4._1});
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$Commands$savePlayerCmd(updatedPlayer)
+				};
+			case 'OnPlayerSave':
+				if (_p4._0.ctor === 'Ok') {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_user$project$Update$updatePlayer, model, _p4._0._0),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'DragStart':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Update$positionUpdateHelp, msg, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'DragAt':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Update$positionUpdateHelp, msg, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Update$positionUpdateHelp, msg, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+		}
 	});

@@ -6,11 +6,121 @@
   font:  bold, italic, serif;
   color: white;
   font-size: 20px;
+  outline: none;
+  box-shadow : none;
+
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
 }
+
 
 .navBar{
 
     width: 100%;
-    padding: 3%;
+    padding: 1%;
     background-color: black;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
+
+.navBar:focus, .navBar:active{
+ outline : none!important;
+ box-shadow : none!important;
+
+
+}
+
+.navBarBtn{
+
+  border-radius : 8px;
+  color : white;
+  background-color : black;
+
+
+}
+
+.navBarBtn:focus{
+ outline : none!important;
+ box-shadow : none!important;
+
+
+}
+
+.navBarBtn:hover{
+ background-color : orange;
+
+}
+
+.homeBlock{
+
+ position: fixed;
+ float: left;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ padding : 20px;
+ width: 50%;
+ border: 3px ;
+ border-radius : 8px;
+ background-color : black;
+ margin: auto;
+
+
+}
+
+.textHomeBlock {
+  text-align : center;
+  vertical-align : middle;
+  color : white;
+
+}
+
+.dragBlock{
+ background-color : black;
+ cursor :move;
+ width : 100px;
+ height : 100px;
+ border-radius :8px;
+ position : absolute;
+ color : white;
+ display : flex;
+ align-items : center;
+ justify-content : center;
+
+
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+
+}
+
+
+
+.editBtn:hover{
+
+ background-color: black ;
+ color : white ;
+ border-radius : 8px;
+
+
+}
+

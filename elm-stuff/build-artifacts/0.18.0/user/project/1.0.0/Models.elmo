@@ -1,8 +1,31 @@
-var _user$project$Models$initialModel = {players: _krisajenkins$remotedata$RemoteData$Loading};
-var _user$project$Models$Model = function (a) {
-	return {players: a};
-};
+var _user$project$Models$Model = F4(
+	function (a, b, c, d) {
+		return {players: a, route: b, position: c, drag: d};
+	});
 var _user$project$Models$Player = F3(
 	function (a, b, c) {
 		return {id: a, name: b, level: c};
 	});
+var _user$project$Models$Drag = F2(
+	function (a, b) {
+		return {start: a, current: b};
+	});
+var _user$project$Models$Position = F2(
+	function (a, b) {
+		return {x: a, y: b};
+	});
+var _user$project$Models$initialModel = function (route) {
+	return {
+		players: _krisajenkins$remotedata$RemoteData$NotAsked,
+		route: route,
+		position: A2(_user$project$Models$Position, 300, 300),
+		drag: _elm_lang$core$Maybe$Nothing
+	};
+};
+var _user$project$Models$NotFoundRoute = {ctor: 'NotFoundRoute'};
+var _user$project$Models$DragBlockRoute = {ctor: 'DragBlockRoute'};
+var _user$project$Models$PlayerRoute = function (a) {
+	return {ctor: 'PlayerRoute', _0: a};
+};
+var _user$project$Models$PlayersRoute = {ctor: 'PlayersRoute'};
+var _user$project$Models$HomeRoute = {ctor: 'HomeRoute'};
