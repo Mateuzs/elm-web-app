@@ -1,0 +1,104 @@
+var _user$project$Update$positionUpdateHelp = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'DragStart':
+				var _p1 = _p0._0;
+				return A5(
+					_user$project$Models$Model,
+					model.famousPeople,
+					model.route,
+					model.position,
+					_elm_lang$core$Maybe$Just(
+						A2(_user$project$Models$Drag, _p1, _p1)),
+					model.quote);
+			case 'DragAt':
+				return A5(
+					_user$project$Models$Model,
+					model.famousPeople,
+					model.route,
+					model.position,
+					A2(
+						_elm_lang$core$Maybe$map,
+						function (_p2) {
+							var _p3 = _p2;
+							return A2(_user$project$Models$Drag, _p3.start, _p0._0);
+						},
+						model.drag),
+					model.quote);
+			case 'DragEnd':
+				return A5(
+					_user$project$Models$Model,
+					model.famousPeople,
+					model.route,
+					_user$project$DragBlock_DragBlock$getPosition(model),
+					_elm_lang$core$Maybe$Nothing,
+					model.quote);
+			default:
+				return model;
+		}
+	});
+var _user$project$Update$update = F2(
+	function (msg, model) {
+		var _p4 = msg;
+		switch (_p4.ctor) {
+			case 'OnFetchFamousPeople':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{famousPeople: _p4._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'OnLocationChange':
+				var newRoute = _user$project$Routing$parseLocation(_p4._0);
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{route: newRoute}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'DragStart':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Update$positionUpdateHelp, msg, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'DragAt':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Update$positionUpdateHelp, msg, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'DragEnd':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_user$project$Update$positionUpdateHelp, msg, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'GetNumber':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: A2(
+						_elm_lang$core$Random$generate,
+						_user$project$Msgs$GetQuote,
+						A2(_elm_lang$core$Random$int, 1, 10))
+				};
+			case 'GetQuote':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$Commands$fetchQuote(_p4._0)
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{quote: _p4._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+		}
+	});

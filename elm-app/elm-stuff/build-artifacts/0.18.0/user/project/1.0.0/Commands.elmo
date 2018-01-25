@@ -1,0 +1,55 @@
+var _user$project$Commands$randomNumber = _elm_lang$core$Basics$round(
+	_elm_lang$core$Time$inMinutes(_elm_lang$core$Time$millisecond));
+var _user$project$Commands$quoteDecoder = A3(
+	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+	'quote',
+	_elm_lang$core$Json_Decode$string,
+	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Quote));
+var _user$project$Commands$fetchQuoteUrl = function (randomNumber) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		'Http://localhost:7000/Quotes/',
+		_elm_lang$core$Basics$toString(randomNumber));
+};
+var _user$project$Commands$fetchQuote = function (randomNumber) {
+	return A2(
+		_elm_lang$core$Platform_Cmd$map,
+		_user$project$Msgs$OnFetchQuote,
+		_krisajenkins$remotedata$RemoteData$sendRequest(
+			A2(
+				_elm_lang$http$Http$get,
+				_user$project$Commands$fetchQuoteUrl(randomNumber),
+				_user$project$Commands$quoteDecoder)));
+};
+var _user$project$Commands$famousPersonDecoder = A3(
+	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+	'description',
+	_elm_lang$core$Json_Decode$string,
+	A3(
+		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+		'profession',
+		_elm_lang$core$Json_Decode$string,
+		A3(
+			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+			'age',
+			_elm_lang$core$Json_Decode$string,
+			A3(
+				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+				'surname',
+				_elm_lang$core$Json_Decode$string,
+				A3(
+					_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+					'name',
+					_elm_lang$core$Json_Decode$string,
+					A3(
+						_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+						'id',
+						_elm_lang$core$Json_Decode$string,
+						_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$FamousPerson)))))));
+var _user$project$Commands$famousPeopleDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$famousPersonDecoder);
+var _user$project$Commands$fetchFamousPeopleUrl = 'http://localhost:7000/famousPeople';
+var _user$project$Commands$fetchFamousPeople = A2(
+	_elm_lang$core$Platform_Cmd$map,
+	_user$project$Msgs$OnFetchFamousPeople,
+	_krisajenkins$remotedata$RemoteData$sendRequest(
+		A2(_elm_lang$http$Http$get, _user$project$Commands$fetchFamousPeopleUrl, _user$project$Commands$famousPeopleDecoder)));

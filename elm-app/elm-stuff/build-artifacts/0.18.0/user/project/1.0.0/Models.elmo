@@ -1,0 +1,36 @@
+var _user$project$Models$Model = F5(
+	function (a, b, c, d, e) {
+		return {famousPeople: a, route: b, position: c, drag: d, quote: e};
+	});
+var _user$project$Models$FamousPerson = F6(
+	function (a, b, c, d, e, f) {
+		return {id: a, name: b, surname: c, age: d, profession: e, description: f};
+	});
+var _user$project$Models$Quote = function (a) {
+	return {quote: a};
+};
+var _user$project$Models$Drag = F2(
+	function (a, b) {
+		return {start: a, current: b};
+	});
+var _user$project$Models$Position = F2(
+	function (a, b) {
+		return {x: a, y: b};
+	});
+var _user$project$Models$initialModel = function (route) {
+	return {
+		famousPeople: _krisajenkins$remotedata$RemoteData$NotAsked,
+		route: route,
+		position: A2(_user$project$Models$Position, 300, 300),
+		drag: _elm_lang$core$Maybe$Nothing,
+		quote: _krisajenkins$remotedata$RemoteData$NotAsked
+	};
+};
+var _user$project$Models$NotFoundRoute = {ctor: 'NotFoundRoute'};
+var _user$project$Models$QuotesRoute = {ctor: 'QuotesRoute'};
+var _user$project$Models$DragBlockRoute = {ctor: 'DragBlockRoute'};
+var _user$project$Models$FamousPersonRoute = function (a) {
+	return {ctor: 'FamousPersonRoute', _0: a};
+};
+var _user$project$Models$FamousPeopleRoute = {ctor: 'FamousPeopleRoute'};
+var _user$project$Models$HomeRoute = {ctor: 'HomeRoute'};
