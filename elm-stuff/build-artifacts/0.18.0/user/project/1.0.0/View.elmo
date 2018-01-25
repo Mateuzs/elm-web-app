@@ -6,25 +6,25 @@ var _user$project$View$notFoundView = A2(
 		_0: _elm_lang$html$Html$text('Not found'),
 		_1: {ctor: '[]'}
 	});
-var _user$project$View$playerEditPage = F2(
-	function (model, playerId) {
-		var _p0 = model.players;
+var _user$project$View$famousPersonInfoPage = F2(
+	function (model, personId) {
+		var _p0 = model.famousPeople;
 		switch (_p0.ctor) {
 			case 'NotAsked':
 				return _elm_lang$html$Html$text('');
 			case 'Loading':
 				return _elm_lang$html$Html$text('Loading ...');
 			case 'Success':
-				var maybePlayer = _elm_lang$core$List$head(
+				var maybeFamousPerson = _elm_lang$core$List$head(
 					A2(
 						_elm_lang$core$List$filter,
-						function (player) {
-							return _elm_lang$core$Native_Utils.eq(player.id, playerId);
+						function (person) {
+							return _elm_lang$core$Native_Utils.eq(person.id, personId);
 						},
 						_p0._0));
-				var _p1 = maybePlayer;
+				var _p1 = maybeFamousPerson;
 				if (_p1.ctor === 'Just') {
-					return _user$project$Players_Edit$view(_p1._0);
+					return _user$project$FamousPeople_InfoView$view(_p1._0);
 				} else {
 					return _user$project$View$notFoundView;
 				}
@@ -36,14 +36,16 @@ var _user$project$View$playerEditPage = F2(
 var _user$project$View$page = function (model) {
 	var _p2 = model.route;
 	switch (_p2.ctor) {
-		case 'PlayersRoute':
-			return _user$project$Players_List$view(model.players);
-		case 'PlayerRoute':
-			return A2(_user$project$View$playerEditPage, model, _p2._0);
+		case 'FamousPeopleRoute':
+			return _user$project$FamousPeople_ListView$view(model.famousPeople);
+		case 'FamousPersonRoute':
+			return A2(_user$project$View$famousPersonInfoPage, model, _p2._0);
 		case 'HomeRoute':
 			return _user$project$Home_Home$view;
 		case 'DragBlockRoute':
 			return _user$project$DragBlock_DragBlock$view(model);
+		case 'QuotesRoute':
+			return _user$project$Quotes_QuotesView$view(model);
 		default:
 			return _user$project$View$notFoundView;
 	}

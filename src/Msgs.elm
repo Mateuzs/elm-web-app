@@ -1,7 +1,7 @@
 
 module Msgs exposing (..)
 
-import Models exposing (Player)
+import Models exposing (FamousPerson, Quote, Model)
 import Navigation exposing (Location)
 import RemoteData exposing (WebData)
 import Http
@@ -9,14 +9,16 @@ import Mouse exposing (Position)
 
 
 
+-- special type for variety of messages used in the app
 
 type Msg
-    = OnFetchPlayers (WebData (List Player))
+    = OnFetchFamousPeople (WebData (List FamousPerson))
     | OnLocationChange Location
-    | ChangeLevel Player Int
-    | OnPlayerSave (Result Http.Error Player)
     | DragStart Position
     | DragAt Position
     | DragEnd Position
+    | GetNumber
+    | GetQuote Int
+    | OnFetchQuote (WebData (Quote))
 
 

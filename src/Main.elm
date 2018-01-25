@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 
-import Commands exposing (fetchPlayers)
+import Commands exposing (fetchFamousPeople)
 import Models exposing (Model, initialModel)
 import Msgs exposing (..)
 import Navigation exposing (Location)
@@ -11,6 +11,8 @@ import View exposing (view)
 import Mouse exposing (Position)
 
 
+-- this is initial function which starts when we conntect to the
+-- server.
 
 init : Location -> ( Model, Cmd Msg )
 init location =
@@ -18,9 +20,11 @@ init location =
         currentRoute =
             Routing.parseLocation location
     in
-        ( initialModel currentRoute, fetchPlayers )
+        ( initialModel currentRoute, fetchFamousPeople )
 
 
+-- function for special tasks, for example watching mouse
+-- movement
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
@@ -30,6 +34,7 @@ subscriptions model =
 
     Just _ ->
       Sub.batch [ Mouse.moves DragAt, Mouse.ups DragEnd ]
+
 
 
 

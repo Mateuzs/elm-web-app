@@ -1,71 +1,97 @@
+--this module is for tasks requiring remote connection, data
+-- decoding and encoding etc.
+
+
 module Commands exposing (..)
 
 import Http
 import Json.Decode as Decode
 import Json.Decode.Pipeline exposing (decode, required)
 import Msgs exposing (Msg)
-import Models exposing (PlayerId, Player)
+import Models exposing (PersonId, FamousPerson, Quote)
 import RemoteData
-import Json.Encode as Encode
+import Time exposing (..)
 
 
+--this function send a HTTP request in order to get a list
+-- of famous people
 
-fetchPlayers : Cmd Msg
-fetchPlayers =
-    Http.get fetchPlayersUrl playersDecoder
+fetchFamousPeople : Cmd Msg
+fetchFamousPeople =
+    Http.get fetchFamousPeopleUrl famousPeopleDecoder
         |> RemoteData.sendRequest
-        |> Cmd.map Msgs.OnFetchPlayers
+        |> Cmd.map Msgs.OnFetchFamousPeople
 
 
-fetchPlayersUrl : String
-fetchPlayersUrl =
-    "http://localhost:4000/players"
+-- address of our server
+
+fetchFamousPeopleUrl : String
+fetchFamousPeopleUrl =
+    "http://localhost:7000/famousPeople"
 
 
-playersDecoder : Decode.Decoder (List Player)
-playersDecoder =
-    Decode.list playerDecoder
+--special Decoder for JSON data
+
+famousPeopleDecoder : Decode.Decoder (List FamousPerson)
+famousPeopleDecoder =
+    Decode.list famousPersonDecoder
 
 
-playerDecoder : Decode.Decoder Player
-playerDecoder =
-    decode Player
+famousPersonDecoder : Decode.Decoder FamousPerson
+famousPersonDecoder =
+    decode FamousPerson
         |> required "id" Decode.string
         |> required "name" Decode.string
-        |> required "level" Decode.int
+        |> required "surname" Decode.string
+        |> required "age" Decode.string
+        |> required "profession" Decode.string
+        |> required "description" Decode.string
 
 
-savePlayerUrl : PlayerId -> String
-savePlayerUrl playerId =
-    "http://localhost:4000/players/" ++ playerId
 
 
-savePlayerRequest : Player -> Http.Request Player
-savePlayerRequest player =
-    Http.request
-        { body = playerEncoder player |> Http.jsonBody
-        , expect = Http.expectJson playerDecoder
-        , headers = []
-        , method = "PATCH"
-        , timeout = Nothing
-        , url = savePlayerUrl player.id
-        , withCredentials = False
-        }
+---- functions for gettin a quote
+
+fetchQuote : Int ->  Cmd Msg
+fetchQuote randomNumber =
+    Http.get (fetchQuoteUrl randomNumber) quoteDecoder
+     |> RemoteData.sendRequest
+     |> Cmd.map Msgs.OnFetchQuote
+
+fetchQuoteUrl : Int -> String
+fetchQuoteUrl randomNumber =
+    "Http://localhost:7000/Quotes/" ++ (toString randomNumber)
 
 
-savePlayerCmd : Player -> Cmd Msg
-savePlayerCmd player =
-    savePlayerRequest player
-        |> Http.send Msgs.OnPlayerSave
+
+--JSON decoder for given quote
 
 
-playerEncoder : Player -> Encode.Value
-playerEncoder player =
-    let
-        attributes =
-            [ ( "id", Encode.string player.id )
-            , ( "name", Encode.string player.name )
-            , ( "level", Encode.int player.level )
-            ]
-    in
-        Encode.object attributes
+
+quoteDecoder : Decode.Decoder Quote
+quoteDecoder =
+    decode Quote
+        |> required "quote" Decode.string
+
+
+randomNumber: Int
+randomNumber = round (inMinutes (millisecond) )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

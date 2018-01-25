@@ -37,7 +37,9 @@ body model =  let
       getPosition model
 
  in
-    div
+  div [class "img"]
+
+    [ div
       [ class "dragBlock" , onMouseDown
       , style
           [
@@ -46,7 +48,7 @@ body model =  let
           ]
       ]
       [ text "Drag Me!"
-      ]
+      ]]
 
 
 

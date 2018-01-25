@@ -2,7 +2,7 @@ var _user$project$Players_Edit$listBtn = A2(
 	_elm_lang$html$Html$a,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('btn regular'),
+		_0: _elm_lang$html$Html_Attributes$class('btn navBarBtn regular'),
 		_1: {
 			ctor: '::',
 			_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$playersPath),
@@ -167,12 +167,23 @@ var _user$project$Players_Edit$nav = function (model) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black p1'),
+			_0: _elm_lang$html$Html_Attributes$class('navBar'),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: _user$project$Players_Edit$listBtn,
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('navBarFont'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _user$project$Players_Edit$listBtn,
+					_1: {ctor: '[]'}
+				}),
 			_1: {ctor: '[]'}
 		});
 };

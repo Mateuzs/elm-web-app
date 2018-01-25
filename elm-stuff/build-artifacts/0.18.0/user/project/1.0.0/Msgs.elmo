@@ -1,3 +1,10 @@
+var _user$project$Msgs$OnFetchQuote = function (a) {
+	return {ctor: 'OnFetchQuote', _0: a};
+};
+var _user$project$Msgs$GetQuote = function (a) {
+	return {ctor: 'GetQuote', _0: a};
+};
+var _user$project$Msgs$GetNumber = {ctor: 'GetNumber'};
 var _user$project$Msgs$DragEnd = function (a) {
 	return {ctor: 'DragEnd', _0: a};
 };
@@ -7,16 +14,9 @@ var _user$project$Msgs$DragAt = function (a) {
 var _user$project$Msgs$DragStart = function (a) {
 	return {ctor: 'DragStart', _0: a};
 };
-var _user$project$Msgs$OnPlayerSave = function (a) {
-	return {ctor: 'OnPlayerSave', _0: a};
-};
-var _user$project$Msgs$ChangeLevel = F2(
-	function (a, b) {
-		return {ctor: 'ChangeLevel', _0: a, _1: b};
-	});
 var _user$project$Msgs$OnLocationChange = function (a) {
 	return {ctor: 'OnLocationChange', _0: a};
 };
-var _user$project$Msgs$OnFetchPlayers = function (a) {
-	return {ctor: 'OnFetchPlayers', _0: a};
+var _user$project$Msgs$OnFetchFamousPeople = function (a) {
+	return {ctor: 'OnFetchFamousPeople', _0: a};
 };

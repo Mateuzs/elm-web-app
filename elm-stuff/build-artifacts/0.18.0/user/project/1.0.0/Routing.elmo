@@ -1,9 +1,10 @@
+var _user$project$Routing$quotesPath = '#/quotes';
 var _user$project$Routing$dragBlockPath = '#/dragBlock';
 var _user$project$Routing$homePath = '#/home';
-var _user$project$Routing$playerPath = function (id) {
-	return A2(_elm_lang$core$Basics_ops['++'], '#players/', id);
+var _user$project$Routing$famousPersonPath = function (id) {
+	return A2(_elm_lang$core$Basics_ops['++'], '#famousPeople/', id);
 };
-var _user$project$Routing$playersPath = '#players';
+var _user$project$Routing$famousPeoplePath = '#famousPeople';
 var _user$project$Routing$matchers = _evancz$url_parser$UrlParser$oneOf(
 	{
 		ctor: '::',
@@ -18,24 +19,31 @@ var _user$project$Routing$matchers = _evancz$url_parser$UrlParser$oneOf(
 				ctor: '::',
 				_0: A2(
 					_evancz$url_parser$UrlParser$map,
-					_user$project$Models$PlayerRoute,
+					_user$project$Models$FamousPersonRoute,
 					A2(
 						_evancz$url_parser$UrlParser_ops['</>'],
-						_evancz$url_parser$UrlParser$s('players'),
+						_evancz$url_parser$UrlParser$s('famousPeople'),
 						_evancz$url_parser$UrlParser$string)),
 				_1: {
 					ctor: '::',
 					_0: A2(
 						_evancz$url_parser$UrlParser$map,
-						_user$project$Models$PlayersRoute,
-						_evancz$url_parser$UrlParser$s('players')),
+						_user$project$Models$FamousPeopleRoute,
+						_evancz$url_parser$UrlParser$s('famousPeople')),
 					_1: {
 						ctor: '::',
 						_0: A2(
 							_evancz$url_parser$UrlParser$map,
 							_user$project$Models$DragBlockRoute,
 							_evancz$url_parser$UrlParser$s('dragBlock')),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_evancz$url_parser$UrlParser$map,
+								_user$project$Models$QuotesRoute,
+								_evancz$url_parser$UrlParser$s('quotes')),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}

@@ -3,7 +3,7 @@
 
 .navBarFont{
 
-  font:  bold, italic, serif;
+  font-family: "Comic Sans MS";
   color: white;
   font-size: 20px;
   outline: none;
@@ -64,29 +64,43 @@
 
 }
 
+.navBarBtn:active{
+ background: #af6d03  ;
+}
+
 .homeBlock{
 
- position: fixed;
- float: left;
- top: 50%;
+ position: absolute  ;
  left: 50%;
+ top : 50%;
  transform: translate(-50%, -50%);
- padding : 20px;
  width: 50%;
- border: 3px ;
+ padding : 20px;
+ border: 3px solid black ;
  border-radius : 8px;
- background-color : black;
+ background-color : white;
  margin: auto;
+}
 
-
+.img{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background-image: url("lambda.png");
 }
 
 .textHomeBlock {
-  text-align : center;
+  text-align : justify;
   vertical-align : middle;
-  color : white;
-
+  color : black;
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  font-size: 20px;
 }
+
 
 .dragBlock{
  background-color : black;
@@ -99,7 +113,8 @@
  display : flex;
  align-items : center;
  justify-content : center;
-
+ font-family: "Comic Sans MS";
+ font-weight: bold;
 
 
   -webkit-touch-callout: none; /* iOS Safari */
@@ -113,14 +128,221 @@
 
 }
 
+.dragBlock:active{
 
+  background: blue;
+
+}
 
 .editBtn:hover{
 
- background-color: black ;
  color : white ;
- border-radius : 8px;
 
+
+
+}
+
+
+.listBlock{
+
+ position: fixed;
+ float: left;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ border: solid black 4px;
+ border-radius : 8px;
+ margin: auto;
+
+
+}
+
+.headField{
+
+
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  box-shadow : none;
+  text-align: center;
+  background-color: black;
+
+
+}
+
+.table{
+
+ border: 0;
+ border-collapse: collapse;
+
+}
+
+.listField{
+
+  font-family: "Comic Sans MS";
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  box-shadow : none;
+  border: 3px solid black;
+  text-align: center;
+  background-color:white;
+  border-radius: 8px;
+
+}
+
+
+.listFieldAction:{
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  box-shadow : none;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+  background-color:white;
+  color: black;
+}
+
+.listFieldAction:hover{
+  background: black;
+  color: white;
+}
+
+
+.bodyBlock{
+
+ position: fixed;
+ float: left;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ border: solid black 4px;
+ border-radius : 8px;
+ margin: auto;
+ background: white;
+
+}
+
+.title{
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  font-size: 30px;
+  border: 2px solid black ;
+  padding: 20px;
+  text-align:  center;
+}
+
+.content{
+  padding: 20px;
+  text-align:justify;
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  border: 2px solid black ;
+
+
+}
+
+.quoteBlock{
+
+ position: fixed;
+ float: left;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ border: solid black 4px;
+ border-radius : 8px;
+ margin: auto;
+ background: white;
+ width: 70%;
+}
+
+.quoteTitle{
+
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  font-size: 50px;
+  padding: 1%;
+  text-align:  center;
+
+
+}
+
+.quoteContent1{
+
+  text-align:justify;
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 1% 0 3% 0;
+}
+
+.quoteContent2{
+
+  text-align:justify;
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  height: 20%;
+  padding: 5%;
+
+
+}
+
+.fa-rocket{
+  padding: 5px 0 0 0;
+}
+.quoteBtn{
+  border-radius : 8px;
+  color : white;
+  background-color : black;
+  align: center;
+  padding: 3%;
+  width: 50%;
+  font-family: "Comic Sans MS";
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.quoteBtn:hover{
+
+  background: #a50101;
+}
+
+.quoteBtn:active{
+   background: #591010;
+}
+
+.img{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 650px;
+  background-image: url("images/lambda.png");
+}
+
+
+
+.{
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 
 }
 

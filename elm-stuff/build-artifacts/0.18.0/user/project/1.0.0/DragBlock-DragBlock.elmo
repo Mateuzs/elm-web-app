@@ -84,35 +84,46 @@ var _user$project$DragBlock_DragBlock$body = function (model) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('dragBlock'),
-			_1: {
-				ctor: '::',
-				_0: _user$project$DragBlock_DragBlock$onMouseDown,
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$style(
-						{
-							ctor: '::',
-							_0: A2(
-								_user$project$DragBlock_DragBlock_ops['=>'],
-								'left',
-								_user$project$DragBlock_DragBlock$px(realPosition.x)),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_user$project$DragBlock_DragBlock_ops['=>'],
-									'top',
-									_user$project$DragBlock_DragBlock$px(realPosition.y)),
-								_1: {ctor: '[]'}
-							}
-						}),
-					_1: {ctor: '[]'}
-				}
-			}
+			_0: _elm_lang$html$Html_Attributes$class('img'),
+			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text('Drag Me!'),
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('dragBlock'),
+					_1: {
+						ctor: '::',
+						_0: _user$project$DragBlock_DragBlock$onMouseDown,
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$style(
+								{
+									ctor: '::',
+									_0: A2(
+										_user$project$DragBlock_DragBlock_ops['=>'],
+										'left',
+										_user$project$DragBlock_DragBlock$px(realPosition.x)),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_user$project$DragBlock_DragBlock_ops['=>'],
+											'top',
+											_user$project$DragBlock_DragBlock$px(realPosition.y)),
+										_1: {ctor: '[]'}
+									}
+								}),
+							_1: {ctor: '[]'}
+						}
+					}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Drag Me!'),
+					_1: {ctor: '[]'}
+				}),
 			_1: {ctor: '[]'}
 		});
 };

@@ -1,4 +1,4 @@
-var _user$project$Players_List$homeBtn = function () {
+var _user$project$FamousPeople_ListView$homeBtn = function () {
 	var path = _user$project$Routing$homePath;
 	return A2(
 		_elm_lang$html$Html$a,
@@ -28,8 +28,8 @@ var _user$project$Players_List$homeBtn = function () {
 			}
 		});
 }();
-var _user$project$Players_List$editBtn = function (player) {
-	var path = _user$project$Routing$playerPath(player.id);
+var _user$project$FamousPeople_ListView$infoBtn = function (famousPerson) {
+	var path = _user$project$Routing$famousPersonPath(famousPerson.id);
 	return A2(
 		_elm_lang$html$Html$a,
 		{
@@ -47,18 +47,18 @@ var _user$project$Players_List$editBtn = function (player) {
 				_elm_lang$html$Html$i,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('fa fa-pencil mr1'),
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-info-circle mr1'),
 					_1: {ctor: '[]'}
 				},
 				{ctor: '[]'}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text('Edit'),
+				_0: _elm_lang$html$Html$text('Info'),
 				_1: {ctor: '[]'}
 			}
 		});
 };
-var _user$project$Players_List$playerRow = function (player) {
+var _user$project$FamousPeople_ListView$famousPersonRow = function (famousPerson) {
 	return A2(
 		_elm_lang$html$Html$tr,
 		{
@@ -77,7 +77,7 @@ var _user$project$Players_List$playerRow = function (player) {
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text(player.id),
+					_0: _elm_lang$html$Html$text(famousPerson.id),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -91,7 +91,7 @@ var _user$project$Players_List$playerRow = function (player) {
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text(player.name),
+						_0: _elm_lang$html$Html$text(famousPerson.name),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -105,8 +105,7 @@ var _user$project$Players_List$playerRow = function (player) {
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text(
-								_elm_lang$core$Basics$toString(player.level)),
+							_0: _elm_lang$html$Html$text(famousPerson.surname),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
@@ -115,21 +114,51 @@ var _user$project$Players_List$playerRow = function (player) {
 							_elm_lang$html$Html$td,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('listFieldAction'),
+								_0: _elm_lang$html$Html_Attributes$class('listField'),
 								_1: {ctor: '[]'}
 							},
 							{
 								ctor: '::',
-								_0: _user$project$Players_List$editBtn(player),
+								_0: _elm_lang$html$Html$text(famousPerson.age),
 								_1: {ctor: '[]'}
 							}),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$td,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('listField'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(famousPerson.profession),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$td,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('listFieldAction'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _user$project$FamousPeople_ListView$infoBtn(famousPerson),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
 					}
 				}
 			}
 		});
 };
-var _user$project$Players_List$list = function (players) {
+var _user$project$FamousPeople_ListView$list = function (famousPeople) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -208,7 +237,7 @@ var _user$project$Players_List$list = function (players) {
 														},
 														{
 															ctor: '::',
-															_0: _elm_lang$html$Html$text('Level'),
+															_0: _elm_lang$html$Html$text('Surname'),
 															_1: {ctor: '[]'}
 														}),
 													_1: {
@@ -222,10 +251,40 @@ var _user$project$Players_List$list = function (players) {
 															},
 															{
 																ctor: '::',
-																_0: _elm_lang$html$Html$text('Actions'),
+																_0: _elm_lang$html$Html$text('Age'),
 																_1: {ctor: '[]'}
 															}),
-														_1: {ctor: '[]'}
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$th,
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Attributes$class('headField'),
+																	_1: {ctor: '[]'}
+																},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text('Profession'),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_elm_lang$html$Html$th,
+																	{
+																		ctor: '::',
+																		_0: _elm_lang$html$Html_Attributes$class('headField'),
+																		_1: {ctor: '[]'}
+																	},
+																	{
+																		ctor: '::',
+																		_0: _elm_lang$html$Html$text('Info   '),
+																		_1: {ctor: '[]'}
+																	}),
+																_1: {ctor: '[]'}
+															}
+														}
 													}
 												}
 											}
@@ -237,7 +296,7 @@ var _user$project$Players_List$list = function (players) {
 								_0: A2(
 									_elm_lang$html$Html$tbody,
 									{ctor: '[]'},
-									A2(_elm_lang$core$List$map, _user$project$Players_List$playerRow, players)),
+									A2(_elm_lang$core$List$map, _user$project$FamousPeople_ListView$famousPersonRow, famousPeople)),
 								_1: {ctor: '[]'}
 							}
 						}),
@@ -246,7 +305,7 @@ var _user$project$Players_List$list = function (players) {
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Players_List$nav = A2(
+var _user$project$FamousPeople_ListView$nav = A2(
 	_elm_lang$html$Html$div,
 	{
 		ctor: '::',
@@ -264,12 +323,12 @@ var _user$project$Players_List$nav = A2(
 			},
 			{
 				ctor: '::',
-				_0: _user$project$Players_List$homeBtn,
+				_0: _user$project$FamousPeople_ListView$homeBtn,
 				_1: {ctor: '[]'}
 			}),
 		_1: {ctor: '[]'}
 	});
-var _user$project$Players_List$maybeList = function (response) {
+var _user$project$FamousPeople_ListView$maybeList = function (response) {
 	var _p0 = response;
 	switch (_p0.ctor) {
 		case 'NotAsked':
@@ -277,22 +336,22 @@ var _user$project$Players_List$maybeList = function (response) {
 		case 'Loading':
 			return _elm_lang$html$Html$text('Loading...');
 		case 'Success':
-			return _user$project$Players_List$list(_p0._0);
+			return _user$project$FamousPeople_ListView$list(_p0._0);
 		default:
 			return _elm_lang$html$Html$text(
 				_elm_lang$core$Basics$toString(_p0._0));
 	}
 };
-var _user$project$Players_List$view = function (response) {
+var _user$project$FamousPeople_ListView$view = function (response) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: _user$project$Players_List$nav,
+			_0: _user$project$FamousPeople_ListView$nav,
 			_1: {
 				ctor: '::',
-				_0: _user$project$Players_List$maybeList(response),
+				_0: _user$project$FamousPeople_ListView$maybeList(response),
 				_1: {ctor: '[]'}
 			}
 		});

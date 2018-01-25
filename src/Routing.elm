@@ -1,21 +1,25 @@
 module Routing exposing (..)
 
 import Navigation exposing (Location)
-import Models exposing (PlayerId, Route(..))
+import Models exposing (PersonId, Route(..))
 import UrlParser exposing (..)
 import Html.Attributes exposing (class, href)
 
 
+-- function responsible for routing through the views of the app.
 
 matchers : Parser (Route -> a) a
 matchers =
     oneOf
         [ map HomeRoute top
         , map HomeRoute (s "home")
-        , map PlayerRoute (s "players" </> string)
-        , map PlayersRoute (s "players")
+        , map FamousPersonRoute (s "famousPeople" </> string)
+        , map FamousPeopleRoute (s "famousPeople")
         , map DragBlockRoute (s "dragBlock")
+        , map QuotesRoute (s "quotes")
         ]
+
+
 
 
 parseLocation : Location -> Route
@@ -29,14 +33,14 @@ parseLocation location =
 
 
 
-playersPath : String
-playersPath =
-    "#players"
+famousPeoplePath : String
+famousPeoplePath =
+    "#famousPeople"
 
 
-playerPath : PlayerId -> String
-playerPath id =
-    "#players/" ++ id
+famousPersonPath : PersonId -> String
+famousPersonPath id =
+    "#famousPeople/" ++ id
 
 
 homePath : String
@@ -46,4 +50,8 @@ homePath =
 dragBlockPath : String
 dragBlockPath =
     "#/dragBlock"
+
+quotesPath : String
+quotesPath =
+    "#/quotes"
 

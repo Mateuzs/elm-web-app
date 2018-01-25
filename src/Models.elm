@@ -1,49 +1,58 @@
+-- In general, models carry all the important data for the web app
+-- from these models we can create views and interact with the app
+
 module Models exposing (..)
 
 
+--necessary modules
 
 import RemoteData exposing (WebData)
 import Mouse exposing (Position)
 
 
 
-
-
-
-
-
+-- this is initial model which is loaded when we connect
+-- to the server
 initialModel : Route -> Model
 initialModel route =
-    { players = RemoteData.NotAsked
+    { famousPeople = RemoteData.NotAsked
     , route = route
     , position = Position 300 300
     , drag = Nothing
-
+    , quote =  RemoteData.NotAsked
     }
 
--- Players Models
 
 
+
+-- famousPeople Models
 
 
 type alias Model =
-       { players : WebData (List Player),
+       { famousPeople : WebData (List FamousPerson),
          route : Route,
          position : Position,
-         drag : Maybe Drag
+         drag : Maybe Drag,
+         quote : WebData Quote
        }
 
 
-
-type alias PlayerId =
-    String
+type alias PersonId = String
 
 
-type alias Player =
-    { id : PlayerId
+type alias FamousPerson =
+    { id : PersonId
     , name : String
-    , level : Int
+    , surname : String
+    , age : String
+    , profession : String
+    , description : String
     }
+
+
+type alias Quote =
+      {quote: String}
+
 
 
 
@@ -52,15 +61,16 @@ type alias Player =
 
 type Route
     = HomeRoute
-    | PlayersRoute
-    | PlayerRoute PlayerId
+    | FamousPeopleRoute
+    | FamousPersonRoute PersonId
     | DragBlockRoute
+    | QuotesRoute
     | NotFoundRoute
 
 
 
--- DragBlock Models
 
+-- DragBlock Models
 
 
 type alias Drag =
