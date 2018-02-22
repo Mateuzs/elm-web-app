@@ -1,6 +1,11 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DeriveGeneric #-}
 
+{-|
+Module	: API
+Description: Provides functionality for haskell based server
+-}
+
 module API where
 
 import Data.Monoid ((<>))
@@ -8,27 +13,32 @@ import Data.Aeson (FromJSON, ToJSON)
 import GHC.Generics
 import Web.Scotty
 
-
-data User = User { userId :: Int, quote :: String } deriving (Show, Generic)
+-- | Represents a user
+data User = User { userId :: Int,	-- ^ Stores userID
+		   quote :: String 	-- ^ Stores info about user
+		} deriving (Show, Generic)
 instance ToJSON User
 instance FromJSON User
 
 
--- operate with JSON : decode and encode (unfortunately, not used yet in practice in the app)
+-- | Operate with JSON : decode and encode user Mat (unfortunately, not used yet in practice in the app)
 mat :: User
 mat = User { userId = 1, quote = "Mateusz" }
 
+-- | Operate with JSON : decode and encode user Gus
 gus :: User
 gus = User { userId = 2, quote = "Gustaw" }
 
+-- | Returns array of users
 allUsers :: [User]
 allUsers = [mat, gus]
 
+-- | Checks if received ID matches user's ID
 matchesId :: Int -> User -> Bool
 matchesId id user = userId user == id
 
 
--- starts the server and listens on  port 7000
+-- | Starts the server and listens on  port 7000
 
 startServer = do
 

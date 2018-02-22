@@ -1,0 +1,16 @@
+	Code Review
+	projektu autorstwa Krzysztofa Makieły i Kuby Luśtyka, prezentującego modele atomów korzystającego z biblioteki Gloss, przeprowadzona przez Mateusza Zembola oraz Gustawa Lippa.
+
+	Uwagi ogólne:
+	Kod źródłowy programu znajduje się w jednym pliku pf.hs. Zapewne możnaby rozważyć jego podział na moduły jednak ze względu na małe rozmary programu można zrozumieć taką decyzję. Kod jest nieźle sformatowany, posiada wiele komentarzy, wydaje się dosyć czytelny, chociaż być może tekstu jest aż za dużo. Niestety w projekcie nie znajduje się plik wygenerowany przez Haddock, co utrudnia szybkie zorientowanie się w projekcie. Ponadto brakuje testów!
+
+	Uwagi do poszczególnych elementów:
+	- typ particle jest nieoczywisty, zapewne należałoby go rozdzielić na elektron oraz jądro dla czytelności. Należy jednak zauważyć, że jest dobrze opisany w komentarzu.
+	- w głównej funkcji dobrze opisane są funkcje wymagane przez bibliotekę gloss
+	- w funkcjach pomocniczych zwracane elementy opisywane są w komentarzach jako "argumenty", co może wprowadzać w błąd
+	- funkcja generateParticles jest nieczytelna ze względu na swój rozmiar i formatowanie. Zapwne przydały by się komentarze odnośnie ogólnego działania tej funkcji. Przez jej formę ciężko ocenić poprawność jej działania!
+	- funkcji jest mało dzięki czemu kod jest bardziej czytelny, ponadto wydają się dobrze spełniać swoje zadanie.
+
+	Podsumowanie:
+	Kod jest nieźle sformatowany, poza ostatnią funkcją. Jego działanie jest poprawne. Brakuje niestety testów oraz dokumentacji wykonanej przez Haddock.
+
