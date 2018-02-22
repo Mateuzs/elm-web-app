@@ -113,7 +113,7 @@ var _user$project$Home_Home$body = A2(
 								A2(
 									_elm_lang$core$Basics_ops['++'],
 									'\n We\'ve added here some views with features to',
-									A2(_elm_lang$core$Basics_ops['++'], ' show You that creating a website with functional languages', ' is possible! We\'ve used Elm and Haskell. Enjoy! ')))),
+									A2(_elm_lang$core$Basics_ops['++'], ' show You that creating a website with functional languages', ' is really comfortable and funny! We\'ve used Elm and Haskell. Enjoy! ')))),
 						_1: {ctor: '[]'}
 					}),
 				_1: {ctor: '[]'}

@@ -41,7 +41,7 @@ body =
          [ div [class "textHomeBlock"] [text ("Hello everyone ! :) this is a project !"
          ++ "\n We've added here some views with features to"
          ++ " show You that creating a website with functional languages"
-         ++ " is possible! We've used Elm and Haskell. Enjoy! ")
+         ++ " is really comfortable and funny! We've used Elm and Haskell. Enjoy! ")
          ]]]
 
 

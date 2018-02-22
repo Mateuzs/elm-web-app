@@ -18,8 +18,7 @@ view response =
         ]
 
 
--- this function react on the proper answer from RemoteData
--- and informs user about the state on the webpage
+-- this function react on the proper answer from RemoteData and informs user about the state on the webpage
 
 maybeList : WebData (List FamousPerson) -> Html Msg
 maybeList response =

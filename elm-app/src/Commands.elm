@@ -1,5 +1,4 @@
---this module is for tasks requiring remote connection, data
--- decoding and encoding etc.
+--this module is for tasks requiring remote connection, data decoding and encoding etc.
 
 
 module Commands exposing (..)
@@ -13,8 +12,7 @@ import RemoteData
 import Time exposing (..)
 
 
---this function send a HTTP request in order to get a list
--- of famous people
+--this function send a HTTP request in order to get a list of famous people
 
 fetchFamousPeople : Cmd Msg
 fetchFamousPeople =
@@ -50,7 +48,7 @@ famousPersonDecoder =
 
 
 
----- functions for gettin a quote
+-- functions for gettin a quote
 
 fetchQuote : Int ->  Cmd Msg
 fetchQuote randomNumber =

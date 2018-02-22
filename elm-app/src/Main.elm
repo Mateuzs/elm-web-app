@@ -11,8 +11,7 @@ import View exposing (view)
 import Mouse exposing (Position)
 
 
--- this is initial function which starts when we conntect to the
--- server.
+-- this is initial function which starts when we conntect to the server.
 
 init : Location -> ( Model, Cmd Msg )
 init location =
@@ -23,8 +22,7 @@ init location =
         ( initialModel currentRoute, fetchFamousPeople )
 
 
--- function for special tasks, for example watching mouse
--- movement
+-- function for special tasks, for example watching mouse movement
 
 subscriptions : Model -> Sub Msg
 subscriptions model =

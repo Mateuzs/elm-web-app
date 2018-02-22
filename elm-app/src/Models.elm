@@ -1,5 +1,3 @@
--- In general, models carry all the important data for the web app
--- from these models we can create views and interact with the app
 
 module Models exposing (..)
 
@@ -11,8 +9,8 @@ import Mouse exposing (Position)
 
 
 
--- this is initial model which is loaded when we connect
--- to the server
+-- this is initial model which is loaded when we connect to the server
+
 initialModel : Route -> Model
 initialModel route =
     { famousPeople = RemoteData.NotAsked
