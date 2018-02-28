@@ -28,7 +28,7 @@ After Installing, just type:
 ```
 yarn start
 ```
-App will start at port : 3000  
+App will start on port : 3000  
 In Your browser type:
 ```
 localhost:3000
