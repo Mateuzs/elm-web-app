@@ -28,7 +28,7 @@ After Installing, just type:
 ```
 yarn start
 ```
-App will start at port 3000  
+App will start at port : 3000  
 In Your browser type:
 ```
 localhost:3000
@@ -49,9 +49,9 @@ Information about dependencies You can find in my-project.cabal
 
 After installing, type:
 ```
-build exec server
+stack exec server
 ```
-Server will start on port 7000
+Server will start on port : 7000
 
 
 
